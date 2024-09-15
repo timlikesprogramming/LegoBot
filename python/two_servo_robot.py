@@ -1,6 +1,6 @@
 import serial
 import time
-import keyboard
+import keyboard # @TODO comment from Reini: this package only makes problems within the docker, therefore I used the input() function
 
 
 def main():
