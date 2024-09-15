@@ -1,0 +1,17 @@
+{
+    "name": "ROS",
+    "dockerFile": "Dockerfile",
+    "mounts": [
+        "source=/dev/ttyS3,target=/dev/ttyS3,type=bind"
+    ],
+    "runArgs": [
+        "--privileged"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-iot.vscode-ros"
+            ]
+        }
+    }
+}
