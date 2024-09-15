@@ -5,6 +5,7 @@ RUN apt-get update
 
 # install python stuff
 RUN apt install -y --no-install-recommends \
+  git \
   python3-full \
   python3-dev \
   python3-pil \
@@ -12,7 +13,8 @@ RUN apt install -y --no-install-recommends \
   python3-setuptools \
   python3-tk \
   python3-venv \
-  python3-wheel
+  python3-wheel \
+  usbutils
 
 # Create and activate Python virtual environment
 RUN python3 -m venv /opt/venv
@@ -33,5 +35,10 @@ RUN apt-get install -y \
 # Append the source command to .bashrc
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 
-# Default command to keep the container running
-ENTRYPOINT [""]
+# Copy the script to add symlink
+COPY add_symlink.sh /usr/local/bin/add_symlink.sh
+RUN chmod +x /usr/local/bin/add_symlink.sh
+
+# Entry point
+ENTRYPOINT ["/usr/local/bin/add_symlink.sh"]
+CMD [ "sleep", "infinity" ]

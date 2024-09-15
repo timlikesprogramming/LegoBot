@@ -1,12 +1,8 @@
 {
     "name": "ROS",
     "dockerFile": "Dockerfile",
-    "mounts": [
-        "source=/dev/ttyS3,target=/dev/ttyS3,type=bind"
-    ],
-    "runArgs": [
-        "--privileged"
-    ],
+    "privileged": true,
+    "overrideCommand": false,
     "customizations": {
         "vscode": {
             "extensions": [
