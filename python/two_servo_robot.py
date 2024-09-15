@@ -5,7 +5,7 @@ import keyboard
 
 def main():
     # Set up the serial connection (make sure to change 'COM3' to your Arduino's port)
-    arduino_port = 'COM4'  # In WSL this COM4 is equivalent to /dev/ttyS3
+    arduino_port = '/dev/ttyS3'  # In WSL this COM4 is equivalent to /dev/ttyS3
     baud_rate = 9600
     ser = serial.Serial(arduino_port, baud_rate)
     time.sleep(2)  # Wait for the serial connection to initialize
